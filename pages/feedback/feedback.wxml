@@ -1,0 +1,19 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='page'>
+
+<form bindsubmit="bindFormSubmit">
+<view class='formContainer'>
+
+    <textarea class='feedContent' placeholder="必填，你想吐槽点啥子喽~" name="feedContent"/>
+    <view class='uploadPicture' bindtap='uploadPicture'>
+    
+   <image class='camera' src='../../images/camera.png'></image>
+   <view>上传照片</view>
+     </view>
+    <input class='contactInput' name='contact' placeholder='微信、邮箱或电话'></input>
+    <view class='item'>留下你的联系方式将更方便三角地的改进呦~</view>
+ <button class='submitBtn' form-type="submit"> 提交 </button>
+ </view>
+  </form>
+
+</view>

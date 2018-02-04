@@ -1,0 +1,20 @@
+{
+  "pages":[
+    "pages/test/test",
+    "pages/feedback/feedback",
+    "pages/aboutUs/aboutUs",
+    "pages/login/login",
+    "pages/me/me",
+    "pages/search/search",
+    "pages/history/history",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "三角地",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  }
+}

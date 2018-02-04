@@ -1,0 +1,11 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<view class='page'>
+<view class='topContainer'>
+<image src='../../images/san_jiao_di_grey.png'></image>
+<view>三角地V1.0.0</view>
+</view>
+<view class='bottom'>
+<view class='item'>北京大学研究生会掌上燕园开发小组</view>
+<view class='item'>联系方式: ******@163.com</view>
+</view>
+</view>

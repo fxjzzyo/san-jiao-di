@@ -1,0 +1,27 @@
+/* pages/aboutUs/aboutUs.wxss */
+
+.page {
+  justify-content: center;
+}
+
+.topContainer {
+  margin-top: 100rpx;
+  text-align: center;
+}
+
+.topContainer image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.bottom {
+  width: 100%;
+  position: absolute;
+  bottom: 10rpx;
+}
+
+.bottom .item {
+  line-height: 50rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+}

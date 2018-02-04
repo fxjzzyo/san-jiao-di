@@ -1,0 +1,27 @@
+<!--pages/me/me.wxml-->
+<view class='page'>
+  <view class='topContainer'>
+    <image src='../../images/san_jiao_di.png'></image>
+    <view bindtap='userLogin'>{{loginStatus}}</view>
+  </view>
+  <view class='middleItems' catchtap='checkHistory'>
+    <view class='itemContainer'>
+      <image src='../../images/history.png'></image>
+      <view>浏览记录</view>
+    </view>
+    <view class='itemContainer' catchtap='feedback'>
+      <image src='../../images/la_ba.png'></image>
+      <view>用户反馈</view>
+    </view>
+    <view class='itemContainer' catchtap='aboutUs'>
+      <image src='../../images/bo_shi_hat.png'></image>
+      <view>关于我们</view>
+    </view>
+    <block wx:if='{{showLogoutBtn}}'>
+      <button class='logoutBtn' catchtap='logout'>
+        退出登录
+      </button>
+    </block>
+  </view>
+
+</view>

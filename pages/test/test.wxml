@@ -1,0 +1,80 @@
+<!--pages/test/test.wxml-->
+<view class='page'>
+  <view style='background:#94070a;'>
+    <!--顶部搜索框  -->
+    <view class='topSearchContainer'>
+      <image src='../../images/san_jiao_di.png'></image>
+      <view class='searchInput'>
+        <image class='searchIcon' src='../../images/search.png'></image>
+        <input placeholder='不再错过北大一切有趣的事' value='{{searchValue}}' bindfocus='searchInputFocus'></input>
+      </view>
+
+      <view class='avatarContainer'>
+        <image src='../../images/avatar_white.png' catchtap='login'></image>
+        <view>{{loginStatus}}</view>
+      </view>
+    </view>
+    <!--顶部tabbar  -->
+    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+      <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">校精选</view>
+      <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">悦青春</view>
+      <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">闯未来</view>
+      <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">看世界</view>
+      <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">秀自我</view>
+      <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">知天下</view>
+
+    </scroll-view>
+  </view>
+  <view class="tab-content">
+    <swiper current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+      <!--校精选页  -->
+      <swiper-item class='swiperItem'>
+        <import src='schoolSelection.wxml' />
+        <template is="schoolSelection" data="{{...schoolSelectionData}}" />
+      </swiper-item>
+      <!--其余页  -->
+      <swiper-item class='swiperItem' wx:for="{{[0,1,2,3,4]}}" wx:key='*this'>
+        <!--顶部的筛选条  -->
+        <view class='topFilterContainer'>
+          <view>{{topSlogin}}</view>
+          <!--条件筛选  -->
+          <view class="selectContainer">
+            <view class="nav">
+              <view class="nav-son {{shownavindex == 3? 'active' : ''}}" bindtap="listpx" data-nav="3">
+                <view class="content">排序: {{filter}}</view>
+                <view class="icon"></view>
+              </view>
+            </view>
+            <view class="temp temp2 {{pxopen ? 'slidown' : 'slidup'}} {{pxshow ? 'disappear':''}}">
+              <view wx:for="{{content}}" wx:key='*this' bindtap='selectFilter' data-item='{{item}}'>
+                {{item}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <scroll-view scroll-y="true" class="scoll-h">
+          <block wx:for="{{listOtherDatas}}" wx:key="{{id}}">
+            <view class="item-ans">
+              <view class="leftInfo">
+                <view class="title">{{item.title}}</view>
+                <view class='itemInfo'>
+                  <view>{{item.group}}</view>
+                  <view>{{item.date}}</view>
+                  <image class='hotImage' src='../../images/hot.png'></image>
+                  <view>{{item.hotNum}}</view>
+                </view>
+                <view class="deadLine">截止时间：2018-1-23</view>
+              </view>
+              <image class='rightImage' src='../../images/jay1.jpg'></image>
+            </view>
+          </block>
+          <block>
+            <view class='page-loading'>
+              <text>啊咧，到底了，看看别的吧~</text>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

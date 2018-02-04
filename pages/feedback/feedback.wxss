@@ -1,0 +1,45 @@
+/* pages/feedback/feedback.wxss */
+.page{
+  justify-content: center;
+  
+}
+.formContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+.formContainer .camera{
+
+  width: 100rpx;
+  height: 100rpx;
+}
+.uploadPicture{
+  width: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.feedContent{
+  width: 550rpx;
+  border: 1px solid gainsboro;
+  padding: 10rpx;
+}
+.contactInput{
+width: 700rpx;
+  border: 1px solid gainsboro;
+  margin: auto;
+  margin-top: 20rpx;
+  padding: 10rpx;
+  line-height: 1.5;
+}
+.item{
+  font-size: 25rpx;
+  color: gray;
+  padding: 20rpx;
+}
+.submitBtn{
+  margin: 20rpx;
+  width: 600rpx;
+}
