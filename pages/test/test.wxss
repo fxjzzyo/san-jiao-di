@@ -97,7 +97,7 @@
 }
 
 .tab-item {
-  margin: 0 18rpx;
+  margin: 0 30rpx;
   display: inline-block;
 }
 
