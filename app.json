@@ -13,7 +13,7 @@
   ],
   "window":{
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#94070a",
     "navigationBarTitleText": "三角地",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": true

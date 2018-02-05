@@ -3,14 +3,14 @@
 .searchIcon{
   position: absolute;
   left: 10rpx;
-  top: 10rpx;
+  top: 20rpx;
   width: 50rpx;
   height: 50rpx;
 }
 .clearIcon{
   position: absolute;
   left:500rpx;
-  top: 10rpx;
+  top: 20rpx;
   width: 50rpx;
   height: 50rpx;
   z-index: 5;

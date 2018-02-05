@@ -1,98 +1,117 @@
 /* pages/test/test.wxss */
 @import 'selectFilter.wxss';
 
-.page{
+.page {
   width: 100%;
   height: 100%;
   display: inline-block;
   position: absolute;
+  left:0;
+  top:0;
+}
 
+.topSearchContainer {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: nowrap;
+  width: 100%;
+  height: 8%;
+  background: #94070A;
+  align-items: center;
+  padding: 0 10rpx;
 }
-.topSearchContainer{
-position: absolute;
-top:0;
-display: flex;
-justify-content: space-around;
-flex-flow: nowrap;
-width:100%;
-height: 8%;
-background: #94070a;
-align-items: center;
-}
-.searchInput{
+
+.searchInput {
   position: relative;
   font-size: 25rpx;
   background: white;
-  width: 500rpx;
-  height: 80%;
+  width: 80%;
+  height: 60%;
   box-sizing: border-box;
   padding-left: 10rpx;
   align-items: center;
   justify-content: center;
   border-radius: 25rpx;
-  
 }
-.searchInput input{
+
+.searchInput input {
   position: relative;
   left: 70rpx;
-  line-height: 1.5;
-  margin: 10rpx 0;
-  width: 430rpx;
-  align-items: center;
-} 
-.searchIcon{
+  width: 100%;
+  top: 5rpx;
+}
+
+.searchIcon {
   position: absolute;
   left: 10rpx;
   width: 50rpx;
   height: 50rpx;
-  margin: 10rpx 0;
+  top: 5rpx;
 }
-.avatarContainer{
+
+.avatarContainer {
+  width: 20%;
   display: flex;
   flex-direction: column;
   font-size: 20rpx;
-justify-content: center;
-align-content: center;
+  justify-content: center;
+  align-content: center;
   align-items: center;
-  margin-bottom: 5rpx;
-  padding: 10rpx;
   color: white;
+  text-align: center;
 }
 
-.topSearchContainer image{
+.topSearchContainer image {
   width: 50rpx;
   height: 50rpx;
 }
-.tab-h {
-  height: 7%;
+.tabContainer{
+   height: 7%;
   width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-  line-height: 80rpx;
-  background: #94070a;
-  color: white;
-  font-size: 20rpx;
-  white-space: nowrap;
   position: absolute;
   top: 8%;
   left: 0;
+  background: #94070A;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.tabContainer image{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 10rpx;
+}
+.tab-h {
+  height: 100%;
+  width: 680rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: #94070A;
+  color: white;
+  font-size: 30rpx;
+  white-space: nowrap;
 }
 
 .tab-item {
-  margin: 0 36rpx;
+  margin: 0 18rpx;
   display: inline-block;
 }
 
 .tab-item.active {
   color: #f5ca6a;
   position: relative;
+  text-align: center;
 }
 
 .tab-item.active:after {
   content: "";
   display: block;
   height: 8rpx;
-  width: 52rpx;
+  width: 80rpx;
   background: #f5ca6a;
   position: absolute;
   bottom: 0;
@@ -105,7 +124,7 @@ align-content: center;
   display: flex;
   flex-grow: row no-wrap;
   justify-content: space-between;
-  padding: 10rpx;
+  padding: 10rpx 15rpx;
   box-sizing: border-box;
   height: 180rpx;
   align-items: center;
@@ -119,26 +138,34 @@ align-content: center;
   color: #b0b0b0;
   line-height: 1.5em;
 }
+.leftInfo {
+  width: 480rpx;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
 
 .leftInfo .title {
   font-size: 30rpx;
   color: #000;
-  margin-bottom: 5rpx;
+  margin-bottom: 15rpx;
 }
+
 .leftInfo .deadLine {
   font-size: 20rpx;
   color: grey;
-  margin-bottom: 2rpx;
+}
+.rightImage {
+  width: 240rpx;
+  height: 100%;
 }
 .hotImage {
   width: 20rpx;
   height: 20rpx;
 }
 
-.item-ans image {
-  width: 200rpx;
-  height: 150rpx;
-}
+
 
 .tab-content {
   width: 100%;
@@ -152,39 +179,66 @@ align-content: center;
 .scoll-h {
   height: 90%;
 }
-.swiperItem{
+
+.swiperItem {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.swiperItem .lunboImage{
+
+.swiperItem .lunboImage {
+  background: #000;
   width: 100%;
   height: 100%;
   margin: 0 10rpx;
+  justify-content: center;
+ 
 }
-.lunbo{
+.lunboImage image{
+   width: 100%;
+  height: 100%;
+  margin: auto;
+  -webkit-mask:-webkit-linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,0.5));
+}
+
+
+.lunbo {
   width: 100%;
-  height: 20%;
+  height: 25%;
   box-sizing: border-box;
   text-align: center;
   position: relative;
+  padding-top: 20rpx;
 }
-.list{
+
+.lunbo .innerTopText {
+  left: 20rpx;
+  font-size: 25rpx;
+}
+
+.lunbo .innerBottomText {
+  left: 20rpx;
+  bottom: 10rpx;
+  font-size: 25rpx;
+}
+
+.list {
   display: flex;
   flex-flow: wrap;
-  justify-content: center;
+  justify-content: space-between;
   box-sizing: border-box;
   align-items: center;
   margin-top: 10rpx;
 }
-.sv{
-  height: 75%;
+
+.sv {
+  height: 70%;
 }
+
 .listItem {
   position: relative;
-  width: 350rpx;
+  width: 370rpx;
   height: 250rpx;
-  margin: 5rpx;
 }
 
 .leftItem {
@@ -193,62 +247,75 @@ align-content: center;
   margin-left: 10rpx;
 }
 
-.itemImage{
+.itemImage {
   width: 100%;
   height: 200rpx;
-  justify-content:center;
+  justify-content: center;
   position: relative;
-}
-.itemImage image{
-  width: 350rpx;
-  height: 200rpx;
-}
-.innerTopText{
-position: absolute;
-left: 10rpx;
-top: 5rpx;
-color: black;
-font-size: 20rpx;
-}
-.innerBottomText{
-position: absolute;
-left: 10rpx;
-bottom: 5rpx;
-color: white;
-font-size: 20rpx;
-}
-.rightItem {
-  width: 50%;
-  height: 100%;
-  box-sizing: border-box;
-  margin-right: 10rpx;
+  background: #000;
 }
 
+.itemImage image {
+  width: 100%;
+  height: 200rpx;
+  -webkit-mask:-webkit-linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,0.5));
+}
+
+.innerTopText {
+  position: absolute;
+  left: 10rpx;
+  top: 5rpx;
+  color: white;
+  font-size: 20rpx;
+}
+
+.innerBottomText {
+  position: absolute;
+  left: 10rpx;
+  bottom: 5rpx;
+  color: white;
+  font-size: 20rpx;
+}
 
 .itemInfo {
   display: flex;
-  font-size: 25rpx;
+  font-size: 20rpx;
   color: grey;
-  margin-top: 5rpx;
+  margin-top: 10rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+.itemInfo .groupInfo{
+  width: 80%;
+  display: flex;
   align-items: center;
 }
-
+.groupInfo .group{
+  margin-left: 10rpx;
+}
+.groupInfo .date{
+  margin-left: 15rpx;
+}
+.itemInfo .hotItem{
+  display: flex;
+  align-items: center;
+  margin-right: 10rpx;
+}
 .itemInfo .hotImage {
   width: 20rpx;
   height: 20rpx;
 }
-.page-loading{
+
+.page-loading {
   font-size: 25rpx;
+  color: grey;
   text-align: center;
   padding: 10rpx;
 }
-.leftInfo{
-width: 480rpx;
-}
-.rightImage{
-width: 240rpx;
-}
-.topFilterContainer{
+
+
+
+.topFilterContainer {
   display: flex;
   flex-flow: nowrap;
   justify-content: space-between;
@@ -258,14 +325,16 @@ width: 240rpx;
   padding-top: 10rpx;
   font-size: 25rpx;
   height: 5%;
-  z-index:5;
+  z-index: 5;
   padding-left: 20rpx;
 }
-.lunbo .hot{
+
+.lunbo .hot {
   display: flex;
   position: absolute;
   right: 10rpx;
-  bottom: 5rpx;
-  color: red;
-  font-size: 20rpx;
+  top: 10rpx;
+  color: white;
+  font-size: 25rpx;
+  align-items: center;
 }

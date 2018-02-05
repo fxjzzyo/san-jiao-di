@@ -6,12 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isLogin:false,//记录是否登录
-    loginStatus:'hello pickuer~',
+    isLogin: false,//记录是否登录
+    loginStatus: 'hello pickuer~',
     winHeight: "",//窗口高度
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
-    schoolSelectionData:{
+    schoolSelectionData: {
       indicatorDots: true,
       interval: 4000,
       durdation: 1000,
@@ -22,14 +22,14 @@ Page({
         '../../images/jay3.jpg',
         '../../images/jay4.jpg',
       ],
-      listDatas:[
+      listDatas: [
         {
-          id:'0',
-          title:'第九届校园十佳歌手比赛',
-          deadLine:'截止日期：2018-1-23',
-          group:'软微研究生会',
-          date:'2017-12-1',
-          hotNum:'300'
+          id: '0',
+          title: '第九届校园十佳歌手比赛',
+          deadLine: '截止日期：2018-1-23',
+          group: '软微研究生会',
+          date: '2017-12-1',
+          hotNum: '300'
         },
         {
           id: '1',
@@ -87,8 +87,44 @@ Page({
           date: '2017-12-1',
           hotNum: '300'
         }
+        ,
+        {
+          id: '8',
+          title: '第九届校园十佳歌手比赛',
+          deadLine: '截止日期：2018-1-23',
+          group: '软微研究生会',
+          date: '2017-12-1',
+          hotNum: '300'
+        }
+        ,
+        {
+          id: '9',
+          title: '第九届校园十佳歌手比赛',
+          deadLine: '截止日期：2018-1-23',
+          group: '软微研究生会',
+          date: '2017-12-1',
+          hotNum: '300'
+        }
+        ,
+        {
+          id: '10',
+          title: '第九届校园十佳歌手比赛',
+          deadLine: '截止日期：2018-1-23',
+          group: '软微研究生会',
+          date: '2017-12-1',
+          hotNum: '300'
+        }
+        ,
+        {
+          id: '11',
+          title: '第九届校园十佳歌手比赛',
+          deadLine: '截止日期：2018-1-23',
+          group: '软微研究生会',
+          date: '2017-12-1',
+          hotNum: '300'
+        }
       ]
-      
+
     },
     listOtherDatas: [
       {
@@ -156,15 +192,15 @@ Page({
         hotNum: '300'
       }
     ],
-    topSlogin:'文艺娱乐，广交朋友~',
+    topSlogin: '文艺娱乐，广交朋友~',
     shownavindex: '',
     filter: '发布时间',
     px: ['发布时间', '截止时间', '热度'],
     pxopen: false,
     pxshow: false,
     content: ''
-    
-   
+
+
   },
   // 滚动切换标签样式
   switchTab: function (e) {
@@ -233,7 +269,7 @@ Page({
   /**
    * 搜索输入框获得焦点
    */
-  searchInputFocus:function(e){
+  searchInputFocus: function (e) {
     wx.navigateTo({
       url: '../search/search',
     })
@@ -256,32 +292,18 @@ Page({
         });
       }
     });
-    //检测是否登录
-    //同步方式获取本地是否登录标识数据
-    var isLogin = wx.getStorageSync('isLogin');
-    console.log(isLogin);
-    if (isLogin) {
-      this.setData({
-         isLogin: true ,
-         loginStatus:'hello pkuer~'
-      });
-    }else{
-      this.setData({
-        isLogin: false,
-        loginStatus: '未登录'
-      });
-    }
+    
 
   },
-  
+
   onPageScroll: function () {
     console.log('页面滚动事件')
   },
-  scrolltolower:function(e){
+  scrolltolower: function (e) {
     console.log(e);
     console.log('加载更多吧')
   },
-  login:function(e){
+  login: function (e) {
     wx.navigateTo({
       url: '../me/me',
     })
@@ -297,7 +319,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //检测是否登录
+    //同步方式获取本地是否登录标识数据
+    var isLogin = wx.getStorageSync('isLogin');
+    console.log(isLogin);
+    if (isLogin) {
+      this.setData({
+        isLogin: true,
+        loginStatus: 'hello pkuer~'
+      });
+    } else {
+      this.setData({
+        isLogin: false,
+        loginStatus: '未登录'
+      });
+    }
   },
 
   /**
@@ -320,22 +356,22 @@ Page({
   onPullDownRefresh: function () {
     console.log('页面下拉刷新执行的事件')
   },
-refresh:function(event){
-  console.log('刷新')
-  var that = this;
-  that.setData({
-    showRefresh:true
-  });
-  setTimeout(function () {
+  refresh: function (event) {
+    console.log('刷新')
+    var that = this;
     that.setData({
       showRefresh: true
-    })
-  }, 3000);
-},
-/**
- * 跳转到详情页
- */
-  navigateToDetail:function(e){
+    });
+    setTimeout(function () {
+      that.setData({
+        showRefresh: true
+      })
+    }, 3000);
+  },
+  /**
+   * 跳转到详情页
+   */
+  navigateToDetail: function (e) {
     //TODO跳转到详情页，需要传递参数
     wx.navigateTo({
       url: '../detail/detail',

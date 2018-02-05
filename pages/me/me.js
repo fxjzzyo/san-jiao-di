@@ -25,14 +25,7 @@ Page({
   },
   feedback: function (e) {
     console.log('意见反馈');
-    if (!this.data.isLogin) {
-      wx.showToast({
-        title: '请先登录！',
-        icon: 'success',
-        duration: 2000
-      });
-      return;
-    };
+    
     wx.navigateTo({
       url: '../feedback/feedback',
     })
