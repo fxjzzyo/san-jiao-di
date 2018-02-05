@@ -53,7 +53,7 @@
 
 .slidown{
     display: block;
-    animation: slidown .7s ease-in both;
+    animation: slidown .4s ease-in both;
 }
 .nav-son.active .content{
     color: #94070a;

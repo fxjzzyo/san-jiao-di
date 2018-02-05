@@ -40,6 +40,9 @@ Page({
     var that = this
     WxSearch.wxSearchBlur(e, that);
   },
+  /**
+   * 从热门关键词选中一个
+   */
   wxSearchKeyTap: function (e) {
     console.log('wxSearchKeyTap');
     var that = this

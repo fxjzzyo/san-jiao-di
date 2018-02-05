@@ -332,6 +332,15 @@ refresh:function(event){
     })
   }, 3000);
 },
+/**
+ * 跳转到详情页
+ */
+  navigateToDetail:function(e){
+    //TODO跳转到详情页，需要传递参数
+    wx.navigateTo({
+      url: '../detail/detail',
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */
@@ -343,6 +352,9 @@ refresh:function(event){
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '三角地',
+      desc: '在这里，不再错过每一条消息!',
+    }
   }
 })

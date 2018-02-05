@@ -7,6 +7,7 @@
     "pages/me/me",
     "pages/search/search",
     "pages/history/history",
+    "pages/detail/detail",
     "pages/index/index",
     "pages/logs/logs"
   ],

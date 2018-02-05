@@ -54,7 +54,7 @@
         </view>
         <scroll-view scroll-y="true" class="scoll-h">
           <block wx:for="{{listOtherDatas}}" wx:key="{{id}}">
-            <view class="item-ans">
+            <view class="item-ans" catchtap='navigateToDetail'>
               <view class="leftInfo">
                 <view class="title">{{item.title}}</view>
                 <view class='itemInfo'>

@@ -7,9 +7,9 @@
   </view>
   <!--轮播图部分  -->
   <view class='lunbo'>
-    <swiper style='height:100%;width:90%;margin:auto auto;' indicator-dots='{{indicatorDots}}' autoplay='{{true}}' interval='{{interval}}' duration='{{duration}}'>
+    <swiper style='height:100%;width:100%;margin:auto auto;' indicator-dots='{{indicatorDots}}' autoplay='{{true}}' interval='{{interval}}' duration='{{duration}}' previous-margin='40rpx' next-margin='40rpx' circular='{{true}}'>
       <block wx:for="{{images}}" wx:key='*this'>
-        <swiper-item>
+        <swiper-item catchtap='navigateToDetail'>
           <image class='lunboImage' src='{{item}}'></image>
           <view class='innerTopText'>
             第九届校园十佳歌手比赛
@@ -34,7 +34,8 @@
     <view class='list'>
       <block wx:for='{{listDatas}}' wx:key='{{id}}'>
         <view class='listItem'>
-        <view class='itemImage'>
+        
+        <view class='itemImage' catchtap='navigateToDetail'>
           <image src='../../images/jay1.jpg'>
           </image>
             <view class='innerTopText'>
