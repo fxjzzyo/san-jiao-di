@@ -1,4 +1,6 @@
 //app.js
+const utils = require('./utils/util.js')
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -33,7 +35,21 @@ App({
       }
     })
   },
+  getUserInfo() {
+    return new utils.Promise((resolve, reject) => {
+      if (this.globalData.userInfo) {
+        resolve(this.globalData.userInfo)
+      }
+      return utils.getUserInfo().then(res => {
+        resolve(this.globalData.userInfo = res.userInfo)
+      })
+    })
+  },
   globalData: {
-    userInfo: null
-  }
+    userInfo: null,
+    categoryChanged: true
+  },
+  cacheSubscibe: [],
+
+  utils
 })

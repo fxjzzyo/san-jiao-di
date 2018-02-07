@@ -1,4 +1,8 @@
 // pages/test/test.js
+//获取应用实例
+const $vm = getApp()
+
+const cache = Object.create(null)
 
 Page({
 
@@ -6,6 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    categoryTabs: [],
+    otherTabs: [],//用于生成其他tab页内容的占位数组，就是categoryTabs去掉第一个元素
     isLogin: false,//记录是否登录
     loginStatus: 'hello pickuer~',
     winHeight: "",//窗口高度
@@ -211,9 +217,9 @@ Page({
     this.checkCor();
   },
   // 点击标题切换当前页时改变样式
-  swichNav: function (e) {
+  changeCategory: function (e) {
     console.log('qiehuan');
-    var cur = e.target.dataset.current;
+    var cur = e.target.dataset.id;
     if (this.data.currentTab == cur) { return false; }
     else {
       this.setData({
@@ -322,6 +328,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if ($vm.globalData.categoryChanged) {
+      console.log('changed');
+      $vm.utils.getCategorys().then(res =>
+      {
+        console.log('res:'+res);
+        //根据是否选中category，重新按顺序编号,为了与下面的tabcontent页一致
+        var reIndex = 0;
+        res.map((category) => {
+          if(category.selected){
+            category.lanmu_order=reIndex;
+            reIndex++;
+          }
+        });
+        this.setData({
+          categoryTabs: res,
+          otherTabs: res.slice(1)
+        })
+      }
+      
+      )
+      $vm.globalData.categoryChanged = false
+    }
     //检测是否登录
     //同步方式获取本地是否登录标识数据
     var isLogin = wx.getStorageSync('isLogin');
