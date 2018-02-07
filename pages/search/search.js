@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-   
+    clearDisplay:'none'//标记clear图标是否显示
   },
   /**
    * 点击搜索按钮
@@ -23,6 +23,10 @@ Page({
     console.log('wxSearchInput');
     var that = this
     WxSearch.wxSearchInput(e, that);
+    //显示清除按钮
+    that.setData({
+      clearDisplay:'block'
+    })
   },
   /**
    * 输入框获得焦点
@@ -47,6 +51,10 @@ Page({
     console.log('wxSearchKeyTap');
     var that = this
     WxSearch.wxSearchKeyTap(e, that);
+    //显示清除按钮
+    that.setData({
+      clearDisplay: 'block'
+    })
   },
   /**
    * 删除一条搜索记录
@@ -79,6 +87,7 @@ Page({
     console.log('清除');
     var key = "wxSearchData.value";
     this.setData({
+      clearDisplay:'none',
       [key]:''
     })
   },

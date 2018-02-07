@@ -31,6 +31,7 @@
   height: 60%;
   box-sizing: border-box;
   padding-left: 10rpx;
+  margin-bottom: 25rpx;
   align-items: center;
   justify-content: center;
   border-radius: 25rpx;
@@ -39,16 +40,16 @@
 .searchInput input {
   position: relative;
   left: 70rpx;
-  width: 100%;
+  width: 70%;
   top: 5rpx;
 }
 
 .searchIcon {
   position: absolute;
   left: 10rpx;
-  width: 50rpx;
-  height: 50rpx;
-  top: 5rpx;
+  width: 40rpx;
+  height: 40rpx;
+  top: 10rpx;
 }
 
 .avatarContainer {
@@ -63,7 +64,7 @@
   text-align: center;
 }
 
-.topSearchContainer image {
+.avatarContainer image {
   width: 50rpx;
   height: 50rpx;
 }
@@ -73,7 +74,7 @@
   position: absolute;
   top: 8%;
   left: 0;
-  background: #94070A;
+  background: white;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -90,8 +91,7 @@
   box-sizing: border-box;
   overflow: hidden;
   line-height: 80rpx;
-  background: #94070A;
-  color: white;
+  color: black;
   font-size: 30rpx;
   white-space: nowrap;
 }
@@ -102,7 +102,7 @@
 }
 
 .tab-item.active {
-  color: #f5ca6a;
+  color: #94070A;
   position: relative;
   text-align: center;
 }
@@ -112,7 +112,7 @@
   display: block;
   height: 8rpx;
   width: 80rpx;
-  background: #f5ca6a;
+  background: #94070A;
   position: absolute;
   bottom: 0;
   left: 5rpx;
@@ -144,6 +144,7 @@
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
+  margin-right: 10rpx;
 }
 
 .leftInfo .title {
@@ -204,7 +205,7 @@
 
 .lunbo {
   width: 100%;
-  height: 25%;
+  height: 385rpx;
   box-sizing: border-box;
   text-align: center;
   position: relative;
@@ -221,7 +222,16 @@
   bottom: 10rpx;
   font-size: 25rpx;
 }
-
+.middleSlogon{
+  display: flex;
+  padding-left: 10rpx;
+  height: 60rpx;
+  width: 100%;
+  font-size: 25rpx;
+  align-items: center;
+  align-content: center;
+  border-bottom: 1px solid #f2f2f2;
+}
 .list {
   display: flex;
   flex-flow: wrap;
@@ -232,7 +242,7 @@
 }
 
 .sv {
-  height: 70%;
+  flex: 1;
 }
 
 .listItem {
@@ -249,7 +259,7 @@
 
 .itemImage {
   width: 100%;
-  height: 200rpx;
+  height: 207rpx;
   justify-content: center;
   position: relative;
   background: #000;
@@ -257,7 +267,7 @@
 
 .itemImage image {
   width: 100%;
-  height: 200rpx;
+  height: 207rpx;
   -webkit-mask:-webkit-linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,0.5));
 }
 

@@ -12,6 +12,7 @@ Page({
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     schoolSelectionData: {
+      tabContentHeight:'',
       indicatorDots: true,
       interval: 4000,
       durdation: 1000,
@@ -222,7 +223,7 @@ Page({
   },
   //判断当前滚动超过一屏时，设置tab标题滚动条。
   checkCor: function () {
-    if (this.data.currentTab > 4) {
+    if (this.data.currentTab > 3) {
       this.setData({
         scrollLeft: 300
       })
@@ -287,8 +288,10 @@ Page({
           rpxR = 750 / clientWidth;
         var calc = clientHeight * rpxR - 180;
         console.log(calc)
+        var str = 'schoolSelectionData.tabContentHeight';
         that.setData({
-          winHeight: calc
+          winHeight: calc,
+          [str]: calc
         });
       }
     });
@@ -375,6 +378,15 @@ Page({
     //TODO跳转到详情页，需要传递参数
     wx.navigateTo({
       url: '../detail/detail',
+    })
+  },
+  /**
+   * 跳转到定制tab页
+   */
+  navigateToCustomize:function(e){
+    //TODO跳转到详情页，需要传递参数
+    wx.navigateTo({
+      url: '../customize/customize',
     })
   },
   /**
