@@ -22,7 +22,7 @@
       <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">秀自我</view>
       <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">知天下</view>
     </scroll-view>
-    <image src='../../images/more.png'></image>
+    <image src='../../images/more_red.png' catchtap='navigateToCustomize'></image>
     </view>
     <!--顶部tabbar结束  -->
   <view class="tab-content">
@@ -52,7 +52,7 @@
             </view>
           </view>
         </view>
-        <scroll-view scroll-y="true" class="scoll-h">
+        <scroll-view scroll-y="{{true}}" class="scoll-h">
           <block wx:for="{{listOtherDatas}}" wx:key="{{id}}">
             <view class="item-ans" catchtap='navigateToDetail'>
               <view class="leftInfo">

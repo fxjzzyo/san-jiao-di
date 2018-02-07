@@ -4,8 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border-top: 1px #eee solid;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(1, 1, 1, 0);
 }
 
 .wxSearchInner {
@@ -13,9 +12,8 @@
 }
 
 .wxSearch-section {
-  background-color: #fff;
+  background-color: #94070A;
   padding: 5px 10px;
-  border: 1px #eee solid;
   height: 100rpx;
   align-items: center;
 }
@@ -41,7 +39,7 @@
 
 .wxSearch-button {
   border: none !important;
-  color: cornflowerblue !important;
+  color: white !important;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -49,9 +47,10 @@
 
 .wxSearchTitle {
   display: block;
-  padding: 10px 5px 5px 10px;
+  padding: 20px 5px 20px 5px;
   font-size: 12px;
   text-align: center;
+  border-bottom: 1px solid #eee;
 }
 
 .wxSearchMindKeyItem {
@@ -110,4 +109,5 @@
   line-height: 50px;
   text-align: center;
   font-size: 12px;
+  border-bottom: 1px solid #eee;
 }

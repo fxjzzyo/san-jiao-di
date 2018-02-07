@@ -6,10 +6,11 @@
   display: flex;
   justify-content: center;
   font-size: 25rpx;
-  border-bottom: 2px solid gray;
+  border-bottom: 1px solid #eee;
   background: #f2f2f2;
   align-items: center;
   line-height: 100rpx;
+  color: black;
 }
 .topContainer image{
   width: 60rpx;
@@ -27,4 +28,8 @@
 .itemContainer image{
   width: 60rpx;
   height: 60rpx;
+  margin: 10rpx;
+}
+.logoutBtn{
+  margin: 20rpx 0;
 }

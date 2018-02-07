@@ -1,13 +1,15 @@
 {
   "pages":[
+   "pages/me/me",
     "pages/test/test",
     "pages/feedback/feedback",
     "pages/aboutUs/aboutUs",
     "pages/login/login",
-    "pages/me/me",
+    
     "pages/search/search",
     "pages/history/history",
     "pages/detail/detail",
+    "pages/customize/customize",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -15,7 +17,7 @@
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#94070a",
     "navigationBarTitleText": "三角地",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle":"white",
     "enablePullDownRefresh": true
   }
 }
