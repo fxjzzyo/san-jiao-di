@@ -1,9 +1,9 @@
 <!--pages/schoolSelection/schoolSelection.wxml-->
 <template name='schoolSelection'>
-  <scroll-view scroll-y='{{true}}' scroll-y='true' scroll-top='0' bindscrolltolower='scrolltolower' lower-threshold='50' bindscrolltoupper="refresh" upper-threshold='50' style='height:{{tabContentHeight}}rpx'>
+  <scroll-view  scroll-y='true' scroll-top='0' bindscrolltolower='scrolltolower' lower-threshold='50' bindscrolltoupper="refresh" upper-threshold='50' style='height:{{tabContentHeight}}rpx'>
     <!--轮播图部分  -->
     <view class='lunbo'>
-      <swiper style='height:365rpx;width:100%;margin:auto auto;' indicator-dots='{{indicatorDots}}' autoplay='{{false}}' interval='{{interval}}' duration='{{duration}}' previous-margin='40rpx' next-margin='40rpx' circular='{{true}}'>
+      <swiper style='height:365rpx;width:100%;margin:auto auto;' indicator-dots='{{indicatorDots}}' autoplay='{{true}}' interval='{{interval}}' duration='{{duration}}' previous-margin='40rpx' next-margin='40rpx' circular='{{true}}'>
         <block wx:for="{{images}}" wx:key='*this'>
           <swiper-item catchtap='navigateToDetail'>
             <view class='lunboImage'>

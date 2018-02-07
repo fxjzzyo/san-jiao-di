@@ -329,8 +329,10 @@ Page({
    */
   onShow: function () {
     if ($vm.globalData.categoryChanged) {
+      console.log('changed');
       $vm.utils.getCategorys().then(res =>
       {
+        console.log('res:'+res);
         //根据是否选中category，重新按顺序编号,为了与下面的tabcontent页一致
         var reIndex = 0;
         res.map((category) => {
@@ -338,7 +340,7 @@ Page({
             category.lanmu_order=reIndex;
             reIndex++;
           }
-        })
+        });
         this.setData({
           categoryTabs: res,
           otherTabs: res.slice(1)

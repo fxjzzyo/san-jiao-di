@@ -1,34 +1,30 @@
 <!--pages/test/test.wxml-->
 <view class='page'>
-    <!--顶部搜索框  -->
-    <view class='topSearchContainer'>
-      <view class='searchInput'>
-        <image class='searchIcon' src='../../images/search.png'></image>
-        <input placeholder='不再错过北大一切有趣的事' value='{{searchValue}}' bindfocus='searchInputFocus'></input>
-      </view>
-
-      <view class='avatarContainer'>
-        <image src='../../images/avatar_white.png' catchtap='login'></image>
-        <text>{{loginStatus}}</text>
-      </view>
+  <!--顶部搜索框  -->
+  <view class='topSearchContainer'>
+    <view class='searchInput'>
+      <image class='searchIcon' src='../../images/search.png'></image>
+      <input placeholder='不再错过北大一切有趣的事' value='{{searchValue}}' bindfocus='searchInputFocus'></input>
     </view>
-    <!--顶部tabbar  -->
-    <view class='tabContainer'>
+
+    <view class='avatarContainer'>
+      <image src='../../images/avatar_white.png' catchtap='login'></image>
+      <text>{{loginStatus}}</text>
+    </view>
+  </view>
+  <!--顶部tabbar  -->
+  <view class='tabContainer'>
     <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
       <block wx:for="{{categoryTabs}}" wx:key="lanmu_id" wx:if="{{ item.selected }}">
-                <view 
-                    class="tab-item {{ currentTab==item.lanmu_order? 'active':'' }}" 
-                    bindtap="changeCategory" 
-                    data-id="{{ item.lanmu_order }}"
-                >
-                    {{ item.lanmu_name }}
-                </view>
-            </block>
-      
+        <view class="tab-item {{ currentTab==item.lanmu_order? 'active':'' }}" bindtap="changeCategory" data-id="{{ item.lanmu_order }}">
+          {{ item.lanmu_name }}
+        </view>
+      </block>
+
     </scroll-view>
     <image src='../../images/more_red.png' catchtap='navigateToCustomize'></image>
-    </view>
-    <!--顶部tabbar结束  -->
+  </view>
+  <!--顶部tabbar结束  -->
   <view class="tab-content">
     <swiper current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
       <!--校精选页  -->
@@ -57,18 +53,18 @@
           </view>
           <!--条件筛选结束  -->
         </view>
-         <!--顶部的筛选条结束  -->
+        <!--顶部的筛选条结束  -->
         <scroll-view scroll-y="{{true}}" class="scoll-h">
           <block wx:for="{{listOtherDatas}}" wx:key="{{id}}">
             <view class="item-ans" catchtap='navigateToDetail'>
               <view class="leftInfo">
                 <view class="title">{{item.title}}</view>
                 <view class='itemInfo'>
-                <view class='groupInfo'>
-                 <view>{{item.group}}</view>
-                  <view class='date'>{{item.date}}</view>
-                </view>
-                 
+                  <view class='groupInfo'>
+                    <view>{{item.group}}</view>
+                    <view class='date'>{{item.date}}</view>
+                  </view>
+
                   <view class='hotItem'>
                     <image class='hotImage' src='../../images/hot.png'></image>
                     <view>{{item.hotNum}}</view>
