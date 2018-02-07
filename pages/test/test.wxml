@@ -15,12 +15,16 @@
     <!--顶部tabbar  -->
     <view class='tabContainer'>
     <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-      <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">校精选</view>
-      <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">悦青春</view>
-      <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">闯未来</view>
-      <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">看世界</view>
-      <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">秀自我</view>
-      <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">知天下</view>
+      <block wx:for="{{categoryTabs}}" wx:key="lanmu_id" wx:if="{{ item.selected }}">
+                <view 
+                    class="tab-item {{ currentTab==item.lanmu_order? 'active':'' }}" 
+                    bindtap="changeCategory" 
+                    data-id="{{ item.lanmu_order }}"
+                >
+                    {{ item.lanmu_name }}
+                </view>
+            </block>
+      
     </scroll-view>
     <image src='../../images/more_red.png' catchtap='navigateToCustomize'></image>
     </view>
@@ -33,7 +37,7 @@
         <template is="schoolSelection" data="{{...schoolSelectionData}}" />
       </swiper-item>
       <!--其余页  -->
-      <swiper-item class='swiperItem' wx:for="{{[0,1,2,3,4]}}" wx:key='*this'>
+      <swiper-item class='swiperItem' wx:for="{{otherTabs}}" wx:key='*this' wx:if="{{ item.selected }}">
         <!--顶部的筛选条  -->
         <view class='topFilterContainer'>
           <view>{{topSlogin}}</view>
@@ -51,7 +55,9 @@
               </view>
             </view>
           </view>
+          <!--条件筛选结束  -->
         </view>
+         <!--顶部的筛选条结束  -->
         <scroll-view scroll-y="{{true}}" class="scoll-h">
           <block wx:for="{{listOtherDatas}}" wx:key="{{id}}">
             <view class="item-ans" catchtap='navigateToDetail'>

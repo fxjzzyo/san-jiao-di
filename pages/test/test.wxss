@@ -81,15 +81,17 @@
   align-items: center;
 }
 .tabContainer image{
-  width: 50rpx;
+  width: 10%;
   height: 50rpx;
-  margin: 10rpx;
 }
 .tab-h {
   height: 100%;
-  width: 680rpx;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: scroll;
   line-height: 80rpx;
   color: black;
   font-size: 30rpx;
