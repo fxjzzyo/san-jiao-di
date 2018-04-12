@@ -26,11 +26,11 @@
   </view>
   <!--顶部tabbar结束  -->
   <view class="tab-content">
-    <swiper current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+    <swiper current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{tabContentHeight}}rpx">
       <!--校精选页  -->
       <swiper-item class='swiperItem'>
         <import src='schoolSelection.wxml' />
-        <template is="schoolSelection" data="{{...schoolSelectionData}}" />
+        <template is="schoolSelection" data="{{swiperList,articles,tabContentHeight}}" />
       </swiper-item>
       <!--其余页  -->
       <swiper-item class='swiperItem' wx:for="{{otherTabs}}" wx:key='*this' wx:if="{{ item.selected }}">
@@ -54,9 +54,11 @@
           <!--条件筛选结束  -->
         </view>
         <!--顶部的筛选条结束  -->
-        <scroll-view scroll-y="{{true}}" class="scoll-h">
-          <block wx:for="{{listOtherDatas}}" wx:key="{{id}}">
-            <view class="item-ans" catchtap='navigateToDetail'>
+        <scroll-view scroll-y="{{true}}" class="scoll-h"
+        bindscrolltolower='scrolltolower' lower-threshold='50' bindscrolltoupper="refresh" upper-threshold='50'
+        >
+          <block wx:for="{{articles}}" wx:key="{{item.id}}">
+            <view class="item-ans" catchtap='navigateToDetail' data-id='{{item.id}}'>
               <view class="leftInfo">
                 <view class="title">{{item.title}}</view>
                 <view class='itemInfo'>
@@ -70,9 +72,9 @@
                     <view>{{item.hotNum}}</view>
                   </view>
                 </view>
-                <view class="deadLine">截止时间：2018-1-23</view>
+                <view class="deadLine">{{item.deadLine}}</view>
               </view>
-              <image class='rightImage' src='../../images/jay1.jpg'></image>
+              <image class='rightImage' src='{{item.image}}'></image>
             </view>
           </block>
           <block>

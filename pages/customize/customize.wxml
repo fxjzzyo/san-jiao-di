@@ -16,7 +16,7 @@
 
    <view class="manage">
         <view class="manage__hd">
-            <text class="manage__title">全部频道</text>
+            <text class="manage__title">其他频道</text>
             <text class="manage__tips">点击添加频道</text>
         </view>
         <view class="manage__bd">

@@ -1,2 +1,17 @@
 <!--pages/detail/detail.wxml-->
-<text>这是详情页</text>
+<import src="../../utils/wxParse/wxParse.wxml" />
+
+<view class="page__detail">
+  <view class="detail__title">
+    {{ article.title }}
+  </view>
+  <view class="article__desc">
+    <text class="article__source">{{ article.source }}</text>
+    <text class="article__time">{{ article.date }}</text>
+  </view>
+  <view class="detail">
+    <view class="article__content wxParse">
+      <template is="wxParse" data="{{wxParseData}}" />
+    </view>
+  </view>
+</view>
