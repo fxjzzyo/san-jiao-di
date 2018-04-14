@@ -1,60 +1,29 @@
 // pages/detail/detail.js
+const $vm = getApp()
+
+const { post } = $vm.utils
+
+// const HtmlToJson = require('../../utils/wxParse/html2json.js').html2json;
+// const strDiscode = require('../../utils/wxParse/wxDiscode.js').strDiscode
+
+const WxParse = require('../../utils/wxParse/wxParse.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    article: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
+    var id = options.id;
+   console.log('article id:-----'+id)
+    this.getArticleDetail(options)
   },
 
   /**
@@ -62,5 +31,19 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  getArticleDetail(opt) {
+    $vm.utils.get('hello', { }).then(res=>{
+        console.log(res);
+        var { article_title: title, article_date: date, article_source: source,article_detail:detail } = res
+        // 专题页面
+          this.setData({
+            article: { title, date, source}
+          })
+
+          WxParse.wxParse('html', detail, this);//文章内容
+          // WxParse.wxParse('html', res, this);
+
+    }).catch(err=>console.log(err))
   }
 })

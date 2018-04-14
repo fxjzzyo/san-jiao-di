@@ -1,6 +1,6 @@
 {
   "pages":[
-  
+    "pages/detail/detail",
     "pages/test/test",
     "pages/feedback/feedback",
     "pages/aboutUs/aboutUs",
@@ -8,7 +8,7 @@
     "pages/me/me",
     "pages/search/search",
     "pages/history/history",
-    "pages/detail/detail",
+   
     "pages/customize/customize",
     "pages/index/index",
     "pages/logs/logs"
@@ -20,4 +20,5 @@
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh": true
   }
+  
 }

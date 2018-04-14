@@ -101,7 +101,9 @@ function requstPost(url, data) {
 }
 
 const DOMAIN = 'http://wx.diggid.cn/coverHttps.php'
-
+const domain = 'http://39.107.109.49:3389/'
+const localtest_domain = 'http://localhost:8000/'
+//http://39.107.109.49:3389/user/home
 // 小程序上线需要https，这里使用服务器端脚本转发请求为https
 function requst(url, method, data = {}) {
   wx.showNavigationBarLoading()
@@ -109,11 +111,13 @@ function requst(url, method, data = {}) {
   data.method = method
   return new Promise((resove, reject) => {
     wx.request({
-      url: DOMAIN + '?url=' + rewriteUrl,
+      // url: domain + '?url=' + rewriteUrl,
+      url: localtest_domain+url,
       data: data,
       header: {},
       method: method.toUpperCase(), // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       success: function (res) {
+        console.log('reqest success')
         wx.hideNavigationBarLoading()
         resove(res.data)
       },
@@ -129,18 +133,8 @@ function requst(url, method, data = {}) {
 
 function parseNews(newsList) {
   return newsList.map(news => {
-    var { news_id: id, news_title, news_date: date, news_datetime, news_praise_count: parise, news_comment_count: commont, news_summary: summary, news_icon: icons, news_remark: tag, news_style: style, news_column_id: chid } = news
-    if (style === 4) {
-      style = 1
-      tag = 'H5'
-    }
-    if (parise > 99) {
-      parise = '99+'
-    }
-    if (commont > 99) {
-      commont = '99+'
-    }
-    return { id, chid, title: decodeHtml(news_title), date: date || news_datetime, parise, commont, summary, icons, style, tag }
+    var { id:id, title:title, image: image, deadLine: deadLine, group:group,date:date,hotNum:hotNum } = news
+    return {id, title, image, deadLine, group, date, hotNum}
   })
 }
 

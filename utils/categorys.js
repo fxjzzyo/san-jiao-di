@@ -4,7 +4,7 @@ module.exports = {
   "data": [{
     "lanmu_id": 0,
     "lanmu_name": "校精选",
-    "lanmu_order": 0,
+    "lanmu_order": 0,//目前用这个来标识某一类别
     "lanmu_menu": 1,
     "lanmu_custom": 0,
     "lanmu_json": "/V2/news/list.html?chid=0"
