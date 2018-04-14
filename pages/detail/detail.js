@@ -41,8 +41,8 @@ Page({
             article: { title, date, source}
           })
 
-          // WxParse.wxParse('html', detail, this);//文章内容
-          WxParse.wxParse('html', res, this);
+          WxParse.wxParse('html', detail, this);//文章内容
+          // WxParse.wxParse('html', res, this);
 
     }).catch(err=>console.log(err))
   }

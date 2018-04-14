@@ -114,7 +114,7 @@ function requst(url, method, data = {}) {
       // url: domain + '?url=' + rewriteUrl,
       url: domain+url,
       data: data,
-      header: {},
+      header: { "Content-Type": "application/json"},
       method: method.toUpperCase(), // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       success: function (res) {
         console.log('reqest success')

@@ -33,6 +33,8 @@ Page({
     pxshow: false,
     content: ['发布时间', '截止时间', '热度'],
     scroll_top:0,
+    animationData:{},
+    scroll_flag:true
   },
   // 滚动切换标签样式
   switchTab: function (e) {
@@ -50,7 +52,7 @@ Page({
         currentTab: chid
       })
     }
-    // this.getNewsList(chid, 0)
+    this.getNewsList(chid, 0)
   },
   //判断当前滚动超过一屏时，设置tab标题滚动条。
   checkCor: function () {
@@ -123,41 +125,46 @@ Page({
         });
       }
     });
-    
-
   },
+   
   /**
-   * 监听页面滑动事件
+   * 监听内部scroll-view滑动事件
    */
   scroll_inner:function(e){
     var that = this;
-    // console.log(e.detail);
-    var deltaY = e.detail.deltaY;
-    // var scrollTop = e.detail.scrollTop;
-    if(deltaY<0){//页面向上滚动
-      if (that.scroll_top != 50){
-        that.setData({
-        scroll_top: 50
-      });
-    }
-    }else{
-      if (that.scroll_top!=0){
-        that.setData({
-          scroll_top: 0
-        });
-      }
-     
-    }
-    // if (scrollTop >= 40) {//页面向上滚动
-    //   that.setData({
+    console.log(e.detail);
+    // var deltaY = e.detail.deltaY;
+    var scrollTop = e.detail.scrollTop;
+    // if(deltaY<0){//页面向上滚动
+    //   if (that.scroll_top != 50){
+    //     that.setData({
     //     scroll_top: 50
     //   });
-    // } else {
-    //   that.setData({
-    //     scroll_top: 0
-    //   });
     // }
-    // return true;
+    // }else{
+    //   if (that.scroll_top!=0){
+    //     that.setData({
+    //       scroll_top: 0
+    //     });
+    //   }
+    // }
+    if (scrollTop >= 200) {
+      this.animation.scale(1, 1).opacity(0.1).step();
+      that.setData({
+        scroll_top: 50,
+        animationData: that.animation.export(),
+        scroll_flag:false
+      });
+     
+    } else if(scrollTop<50){
+      this.animation.scale(1, 1).opacity(1).step();
+      that.setData({
+        scroll_flag:true,
+        scroll_top: 0,
+        animationData: that.animation.export(),
+      });
+    }
+    return true;
   },
   onPageScroll: function () {
     console.log('页面滚动事件')
@@ -174,7 +181,15 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // this.getNewsList()
+    this.getNewsList()
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+      success: function (res) {
+        console.log('dong hua-------------')
+      }
+    })
+    this.animation = animation;
   },
 
   /**
@@ -243,7 +258,7 @@ Page({
     if (cache[chid]) {
       cache[chid] = { slides: [], news: [], page: 0, time: Date.now() }
     }
-    // this.getNewsList(chid)
+    this.getNewsList(chid)
   },
   refresh: function (event) {
     console.log('刷新')
@@ -316,7 +331,7 @@ Page({
     console.log('chid:--------'+chid)
     $vm.utils.get(this.data_url, { chid: chid, page: infos.page }).then(res => {
       this._isLoading = false
-     
+      console.log('response:--' +res);
       var { code, newsList, newsBanner } = res
       console.log('response:--code:' + code+'newslist:--'+newsList+'banners:--'+newsBanner);
       if (code === 0) {// 请求成功
