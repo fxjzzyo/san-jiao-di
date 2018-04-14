@@ -33,7 +33,7 @@ Page({
   
   },
   getArticleDetail(opt) {
-    $vm.utils.get('hello', { }).then(res=>{
+    $vm.utils.get('user/details', {id:opt.id}).then(res=>{
         console.log(res);
         var { article_title: title, article_date: date, article_source: source,article_detail:detail } = res
         // 专题页面
@@ -41,8 +41,8 @@ Page({
             article: { title, date, source}
           })
 
-          WxParse.wxParse('html', detail, this);//文章内容
-          // WxParse.wxParse('html', res, this);
+          // WxParse.wxParse('html', detail, this);//文章内容
+          WxParse.wxParse('html', res, this);
 
     }).catch(err=>console.log(err))
   }

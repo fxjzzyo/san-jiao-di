@@ -1,7 +1,9 @@
 <!--pages/test/test.wxml-->
 <view class='page'>
+<scroll-view class='scroll' scroll-y='true' style='height:{{winHeight}}rpx;width:100%'
+ scroll-top='{{scroll_top}}' scroll-with-animation = 'false' >
   <!--顶部搜索框  -->
-  <view class='topSearchContainer'>
+  <view class='topSearchContainer' >
     <view class='searchInput'>
       <image class='searchIcon' src='../../images/search.png'></image>
       <input placeholder='不再错过北大一切有趣的事' value='{{searchValue}}' bindfocus='searchInputFocus'></input>
@@ -13,7 +15,7 @@
     </view>
   </view>
   <!--顶部tabbar  -->
-  <view class='tabContainer'>
+  <view class='tabContainer' style='position:{{pos_type}}'>
     <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
       <block wx:for="{{categoryTabs}}" wx:key="lanmu_id" wx:if="{{ item.selected }}">
         <view class="tab-item {{ currentTab==item.lanmu_order? 'active':'' }}" bindtap="changeCategory" data-id="{{ item.lanmu_order }}">
@@ -25,18 +27,18 @@
     <image src='../../images/more_red.png' catchtap='navigateToCustomize'></image>
   </view>
   <!--顶部tabbar结束  -->
-  <view class="tab-content">
-    <swiper current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{tabContentHeight}}rpx">
+  <view class="tab-content" style='height:{{winHeight-100}}rpx'>
+    <swiper class = "content-swiper" current="{{currentTab}}" duration="300" bindchange="switchTab" >
       <!--校精选页  -->
       <swiper-item class='swiperItem'>
         <import src='schoolSelection.wxml' />
-        <template is="schoolSelection" data="{{swiperList,articles,tabContentHeight}}" />
+        <template is="schoolSelection" data="{{swiperList,articles}}" />
       </swiper-item>
       <!--其余页  -->
-      <swiper-item class='swiperItem' wx:for="{{otherTabs}}" wx:key='*this' wx:if="{{ item.selected }}">
+      <swiper-item class='swiperItem' wx:for="{{otherTabs}}" wx:key='lanmu_id' wx:if="{{ item.selected }}">
         <!--顶部的筛选条  -->
         <view class='topFilterContainer'>
-          <view>{{topSlogin}}</view>
+          <view style='height:100%;text-align:center'>{{topSlogin}}</view>
           <!--条件筛选  -->
           <view class="selectContainer">
             <view class="nav">
@@ -55,7 +57,7 @@
         </view>
         <!--顶部的筛选条结束  -->
         <scroll-view scroll-y="{{true}}" class="scoll-h"
-        bindscrolltolower='scrolltolower' lower-threshold='50' bindscrolltoupper="refresh" upper-threshold='50'
+        bindscrolltolower='scrolltolower' lower-threshold='50' bindscrolltoupper="refresh" upper-threshold='50' style='height:{{winHeight-200}}rpx'  bindscroll="scroll_inner" bindtouchmove='touch_move' bindtouchstart='touch_start'
         >
           <block wx:for="{{articles}}" wx:key="{{item.id}}">
             <view class="item-ans" catchtap='navigateToDetail' data-id='{{item.id}}'>
@@ -86,4 +88,5 @@
       </swiper-item>
     </swiper>
   </view>
+</scroll-view>
 </view>
