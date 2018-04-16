@@ -100,8 +100,10 @@ function requstPost(url, data) {
   return requst(url, 'POST', data)
 }
 
-const DOMAIN = 'http://wx.diggid.cn/coverHttps.php'
-const domain = 'http://39.107.109.49:3389/'
+const DOMAIN = 'http://wx.diggid.cn/coverHttps.php';
+// const domain = 'http://39.107.109.49:3389/'
+// const domain = 'https://dengchong.xyz/'
+const domain = 'https://yanyousan.com/'
 // const localtest_domain = 'http://localhost:8000/'
 //http://39.107.109.49:3389/user/home
 // 小程序上线需要https，这里使用服务器端脚本转发请求为https
