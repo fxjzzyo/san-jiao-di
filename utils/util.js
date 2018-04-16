@@ -100,9 +100,11 @@ function requstPost(url, data) {
   return requst(url, 'POST', data)
 }
 
-const DOMAIN = 'http://wx.diggid.cn/coverHttps.php'
-const domain = 'http://39.107.109.49:3389/'
-const localtest_domain = 'http://localhost:8000/'
+const DOMAIN = 'http://wx.diggid.cn/coverHttps.php';
+// const domain = 'http://39.107.109.49:3389/'
+// const domain = 'https://dengchong.xyz/'
+const domain = 'https://yanyousan.com/'
+// const localtest_domain = 'http://localhost:8000/'
 //http://39.107.109.49:3389/user/home
 // 小程序上线需要https，这里使用服务器端脚本转发请求为https
 function requst(url, method, data = {}) {
@@ -112,9 +114,9 @@ function requst(url, method, data = {}) {
   return new Promise((resove, reject) => {
     wx.request({
       // url: domain + '?url=' + rewriteUrl,
-      url: localtest_domain+url,
+      url: domain+url,
       data: data,
-      header: {},
+      header: { "Content-Type": "application/json"},
       method: method.toUpperCase(), // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       success: function (res) {
         console.log('reqest success')

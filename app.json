@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/detail/detail",
     "pages/test/test",
+    "pages/detail/detail",
+    
     "pages/feedback/feedback",
     "pages/aboutUs/aboutUs",
     "pages/login/login",

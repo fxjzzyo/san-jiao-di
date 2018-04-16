@@ -23,7 +23,7 @@ Page({
     loginStatus: 'hello pickuer~',
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
-    tabContentHeight: '',//tab内容的高度
+    winHeight: '',//tab内容的高度
     topSlogin: '文艺娱乐，广交朋友~',
     //筛选框的参数们
     shownavindex: '',
@@ -31,7 +31,10 @@ Page({
     px: ['发布时间', '截止时间', '热度'],
     pxopen: false,
     pxshow: false,
-    content: ''
+    content: ['发布时间', '截止时间', '热度'],
+    scroll_top:0,
+    animationData:{},
+    scroll_flag:true
   },
   // 滚动切换标签样式
   switchTab: function (e) {
@@ -49,7 +52,7 @@ Page({
         currentTab: chid
       })
     }
-    // this.getNewsList(chid, 0)
+    this.getNewsList(chid, 0)
   },
   //判断当前滚动超过一屏时，设置tab标题滚动条。
   checkCor: function () {
@@ -116,16 +119,53 @@ Page({
         var clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR - 180;
+        var calc = clientHeight * rpxR;
         that.setData({
-          tabContentHeight: calc,
+          winHeight: calc,
         });
       }
     });
-    
-
   },
-
+   
+  /**
+   * 监听内部scroll-view滑动事件
+   */
+  scroll_inner:function(e){
+    var that = this;
+    console.log(e.detail);
+    // var deltaY = e.detail.deltaY;
+    var scrollTop = e.detail.scrollTop;
+    // if(deltaY<0){//页面向上滚动
+    //   if (that.scroll_top != 50){
+    //     that.setData({
+    //     scroll_top: 50
+    //   });
+    // }
+    // }else{
+    //   if (that.scroll_top!=0){
+    //     that.setData({
+    //       scroll_top: 0
+    //     });
+    //   }
+    // }
+    if (scrollTop >= 200) {
+      this.animation.scale(1, 1).opacity(0.1).step();
+      that.setData({
+        scroll_top: 50,
+        animationData: that.animation.export(),
+        scroll_flag:false
+      });
+     
+    } else if(scrollTop<50){
+      this.animation.scale(1, 1).opacity(1).step();
+      that.setData({
+        scroll_flag:true,
+        scroll_top: 0,
+        animationData: that.animation.export(),
+      });
+    }
+    return true;
+  },
   onPageScroll: function () {
     console.log('页面滚动事件')
   },
@@ -142,6 +182,14 @@ Page({
    */
   onReady: function () {
     this.getNewsList()
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+      success: function (res) {
+        console.log('dong hua-------------')
+      }
+    })
+    this.animation = animation;
   },
 
   /**
@@ -149,10 +197,8 @@ Page({
    */
   onShow: function () {
     if ($vm.globalData.categoryChanged) {
-      console.log('changed');
       $vm.utils.getCategorys().then(res =>
       {
-        console.log('res:'+res);
         //根据是否选中category，重新按顺序编号,为了与下面的tabcontent页一致
         var reIndex = 0;
         res.map((category) => {
@@ -173,7 +219,7 @@ Page({
     //检测是否登录
     //同步方式获取本地是否登录标识数据
     var isLogin = wx.getStorageSync('isLogin');
-    console.log(isLogin);
+    // console.log(isLogin);
     if (isLogin) {
       this.setData({
         isLogin: true,
@@ -212,7 +258,7 @@ Page({
     if (cache[chid]) {
       cache[chid] = { slides: [], news: [], page: 0, time: Date.now() }
     }
-    // this.getNewsList(chid)
+    this.getNewsList(chid)
   },
   refresh: function (event) {
     console.log('刷新')
@@ -285,7 +331,7 @@ Page({
     console.log('chid:--------'+chid)
     $vm.utils.get(this.data_url, { chid: chid, page: infos.page }).then(res => {
       this._isLoading = false
-     
+      console.log('response:--' +res);
       var { code, newsList, newsBanner } = res
       console.log('response:--code:' + code+'newslist:--'+newsList+'banners:--'+newsBanner);
       if (code === 0) {// 请求成功
@@ -319,4 +365,5 @@ Page({
     }).catch(err => console.log(err))
 
   },
+  
 })
