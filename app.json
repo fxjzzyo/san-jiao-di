@@ -2,7 +2,7 @@
   "pages":[
     "pages/test/test",
     "pages/detail/detail",
-    
+   
     "pages/feedback/feedback",
     "pages/aboutUs/aboutUs",
     "pages/login/login",

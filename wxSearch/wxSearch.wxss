@@ -12,6 +12,7 @@
 }
 
 .wxSearch-section {
+  display: flex;
   background-color: #94070A;
   padding: 5px 10px;
   height: 100rpx;

@@ -132,7 +132,7 @@ Page({
    */
   scroll_inner:function(e){
     var that = this;
-    console.log(e.detail);
+    // console.log(e.detail);
     // var deltaY = e.detail.deltaY;
     var scrollTop = e.detail.scrollTop;
     // if(deltaY<0){//页面向上滚动

@@ -6,7 +6,7 @@
   <view class='topSearchContainer' animation='{{animationData}}'>
     <view class='searchInput'>
       <image class='searchIcon' src='../../images/search.png'></image>
-      <input placeholder='不再错过北大一切有趣的事' value='{{searchValue}}' bindfocus='searchInputFocus'></input>
+      <input placeholder='不再错过北大一切有趣的事' value='{{searchValue}}' bindtap='searchInputFocus' disabled='true'></input>
     </view>
 
     <view class='avatarContainer'>
